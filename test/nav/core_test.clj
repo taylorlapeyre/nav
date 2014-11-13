@@ -33,15 +33,14 @@
   (is (= (:params request) {:id "1"})))
 
 (def routes
-  (-> (hash-map)
-      (GET    "/items"      items#index)
+  (-> (GET    "/items"      items#index)
       (POST   "/items"      items#create)
       (GET    "/items/:id"  items#show)
       (PATCH  "/items/:id"  items#update)
       (DELETE "/items/:id"  items#delete)))
 
 (deftest it-maps-routes-to-handlers
-  (let [handler (routes->handler routes)]
+  (let [handler (route routes)]
     (handler (mock/request :get "/items"))
     (handler (mock/request :post "/items"))
     (handler (mock/request :get "/items/1"))

@@ -1,7 +1,7 @@
 (ns nav.core
   (:require [clout.core :as clout]))
 
-(defn routes->handler
+(defn route
   [route-map]
   (fn handler [request]
     (let [route-strings   (map second (keys route-map))
@@ -16,17 +16,32 @@
         ((or (:not-found route-map)
              (fn [req] {:status 404})) request)))))
 
-(defn GET [routes-map uri handler]
-  (assoc routes-map [:get uri] handler))
+(defn GET
+  ([uri handler]
+    (GET {} uri handler))
+  ([routes-map uri handler]
+    (assoc routes-map [:get uri] handler)))
 
-(defn POST [routes-map uri handler]
-  (assoc routes-map [:post uri] handler))
+(defn POST
+  ([uri handler]
+    (POST {} uri handler))
+  ([routes-map uri handler]
+    (assoc routes-map [:post uri] handler)))
 
-(defn PATCH [routes-map uri handler]
-  (assoc routes-map [:patch uri] handler))
+(defn PATCH
+  ([uri handler]
+    (PATCH {} uri handler))
+  ([routes-map uri handler]
+    (assoc routes-map [:patch uri] handler)))
 
-(defn PUT [routes-map uri handler]
-  (assoc routes-map [:put uri] handler))
+(defn PUT
+  ([uri handler]
+    (PUT {} uri handler))
+  ([routes-map uri handler]
+    (assoc routes-map [:put uri] handler)))
 
-(defn DELETE [routes-map uri handler]
-  (assoc routes-map [:delete uri] handler))
+(defn DELETE
+  ([uri handler]
+    (DELETE {} uri handler))
+  ([routes-map uri handler]
+    (assoc routes-map [:delete uri] handler)))
