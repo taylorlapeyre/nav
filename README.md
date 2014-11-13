@@ -19,6 +19,16 @@ Add this to your Leiningen :dependencies:
 [nav "0.1.0"]
 ```
 
+### Reasoning
+
+[Ring][ring] might be my favorite framework. Its concepts are extraordinarily elegant, and its API is powerful.
+
+Ring is also very minimalistic by default. By definition, your application will use just one Ring handler.
+
+This is kind of limiting. How do we write modular code to do different things based on the URL if we only have one location to do so?
+
+Nav breaks apart that one HTTP handler into as many as you'd like, each mapped to a specific URL and HTTP method.
+
 ### Usage
 
 Nav is one function. The function takes a specially formatted map and turns it into a [ring][ring] handler function. That's all there is to it.
