@@ -8,7 +8,7 @@ Do you want to match URLs to handlers using Ring? Me too. That's why I made nav.
 - Extremely small (< 50 lines)
 - Will route URLs to handler functions
 - Is easily extendable
-- Easy to understand
+- Is easy to understand
 
 ### Usage
 
@@ -23,7 +23,7 @@ A route map looks like this:
 })
 ```
 
-This might be a pain to write. So I provide some  helper functions as well:
+Of course, this might be a pain to write. So I provide some helper functions as well:
 
 ``` clojure
 (use 'nav.core)

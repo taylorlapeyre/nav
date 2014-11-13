@@ -5,8 +5,8 @@
   [route-map]
   (fn handler [request]
     (let [route-strings   (map second (keys route-map))
-          route->matches #(hash-map :uri % :matches (clout/route-matches % request))
-          analyzed-routes (map route->matches route-strings)
+          match-routes   #(hash-map :uri % :matches (clout/route-matches % request))
+          analyzed-routes (map match-routes route-strings)
           matched-route   (first (filter :matches analyzed-routes))
           merged-params   (merge (:params request) (:matches matched-route))
           request         (assoc request :params merged-params)
