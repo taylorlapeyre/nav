@@ -11,6 +11,14 @@ Do you want to match URLs to handlers using Ring? Me too. That's why I made nav.
 - Is easily extendable
 - Is easy to understand
 
+### Installation
+
+Add this to your Leiningen :dependencies:
+
+```
+[nav "0.1.0"]
+```
+
 ### Usage
 
 Nav is one function. The function takes a specially formatted map and turns it into a [ring][ring] handler function. That's all there is to it.
