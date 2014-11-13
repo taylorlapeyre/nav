@@ -16,7 +16,7 @@ Do you want to match URLs to handlers using Ring? Me too. That's why I made nav.
 Add this to your Leiningen :dependencies:
 
 ```
-[nav "0.1.0"]
+[nav "0.2.0"]
 ```
 
 ### Reasoning
@@ -55,7 +55,7 @@ The result of this is exactly equivalent to the previous code.
 
 You may notice that you can use named url parameters. These are merged directly into the `:params` key in your request map.
 
-Finally, to create your handler, simply pass the route map into the provided function `route` and use it in your application.
+Finally, to create your handler, simply pass the route map into the provided function `combine-routes` and use it in your application.
 
 ``` clojure
 (ns myapp.core
@@ -68,11 +68,16 @@ Finally, to create your handler, simply pass the route map into the provided fun
   [request]
   (ring/response {:name "routing is fun!"}))
 
-(def main-routes
-  (GET "/items/:id" items#show))
+(defn items#create
+  [request]
+  (ring/response {:name "created an item!"}))
+
+(def routes
+  (-> (GET "/items/:id" items#show)
+      (POST "/items"    items#create)))
 
 (def app
-  (-> (route main-routes)
+  (-> (combine-routes routes)
       (wrap-json-response)))
 
 (run-server app {:port 8000})

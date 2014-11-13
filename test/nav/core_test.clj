@@ -40,7 +40,7 @@
       (DELETE "/items/:id"  items#delete)))
 
 (deftest it-maps-routes-to-handlers
-  (let [handler (route routes)]
+  (let [handler (combine-routes routes)]
     (handler (mock/request :get "/items"))
     (handler (mock/request :post "/items"))
     (handler (mock/request :get "/items/1"))

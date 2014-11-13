@@ -1,7 +1,7 @@
 (ns nav.core
   (:require [clout.core :as clout]))
 
-(defn route
+(defn combine-routes
   [route-map]
   (fn handler [request]
     (let [route-strings   (map second (keys route-map))

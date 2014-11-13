@@ -1,4 +1,4 @@
-(defproject nav "0.1.0"
+(defproject nav "0.2.0"
   :description "An extremely simple routing library."
   :url "https://github.com/taylorlapeyre/nav"
   :license {:name "Eclipse Public License"
