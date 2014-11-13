@@ -66,8 +66,7 @@ Finally, to create your handler, simply pass the route map into the provided fun
 
 (defn items#show
   [request]
-  (let [data (json/encode {:name "routing is fun!"})]
-    (ring/response data)))
+  (ring/response {:name "routing is fun!"}))
 
 (def main-routes
   (GET "/items/:id" items#show))
