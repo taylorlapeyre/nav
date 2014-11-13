@@ -1,6 +1,7 @@
-# nav
-
 ![nav](http://i.imgur.com/dg9y1Kl.jpg)
+
+# nav
+[![Build Status](https://travis-ci.org/taylorlapeyre/nav.svg)](https://travis-ci.org/taylorlapeyre/nav)
 
 Do you want to match URLs to handlers using Ring? Me too. That's why I made nav.
 
